@@ -1,0 +1,10 @@
+.Banner {
+    background-image: url(../public/kobe1.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    height: 88vh;
+    top: 0;
+    position: absolute;
+    z-index: 0;
+}

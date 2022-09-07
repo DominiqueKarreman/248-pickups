@@ -1,0 +1,41 @@
+.Nav {
+    background-image: url(../public/navbar.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    height: 9vh;
+    width: 100vw;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    
+  }
+  
+  li {
+    float: center;
+    justify-content: space-between;
+    display: inline-block;
+  }
+  
+  li a {
+    display: block;
+    color: white;
+    text-align: center;
+    
+    padding: 18px 16px;
+    text-decoration: none;
+  }
+  
+  /* Change the link color to #111 (black) on hover */
+  li a:hover {
+    background-color: #111;
+  }
