@@ -8,13 +8,13 @@ export default function Nav() {
     <div className="Nav">
       <ul>
         <li>
-          <a href="/">Home</a>
+          <a href="/">Aanmelden</a>
         </li>
         <li>
-          <a href="/about">About</a>
+          <a href="/about">Spelers</a>
         </li>
         <li>
-          <a href="/contact">Contact</a>
+          <a href="/contact">Overzicht</a>
         </li>
       </ul>
     </div>
