@@ -1,12 +1,12 @@
-.FirstTime {
+.Returning {
     position: absolute;
-    left: 13%;
+    right: 13%;
     background-color: black;
     height: 65vh;
     width: 55vh;
-    transform: skew(16deg);
+    transform: skew(-16deg);
     box-shadow: 12px 12px 6px #00000076;
-    background-image: url(../public/background2.jpg);
+    background-image: url(../public/kobe2.png);
     background-repeat: no-repeat;
     background-size: cover;
     -webkit-transition: all 0.5s ease-out;
@@ -15,13 +15,14 @@
     -ms-transition: all 0.5s ease-out;
     transition: all 0.5s ease-out;
     transition-delay: 1.5s;
-   
+    display: grid;
+    grid-template-rows: 0.3fr 1fr 0.3fr;
 }
-.FirstTime:hover {
+.Returning:hover {
     z-index: 12;
     height: 70vh;
     width: 120vh;
-    left: 20%;
+    right: 20%;
     -webkit-transition: all 0.5s ease-in;
    -moz-transition: all 0.5s ease-in;
    -o-transition: all 0.5s ease-in;
@@ -30,9 +31,11 @@
 
 }
 
-.FirstTime h1 {
+.returning h1 {
     transform: skew(-20deg);
     font-size: 3rem;
+    text-shadow: 2px 2px 2px #000000;
+    
     
 }
 
@@ -50,34 +53,14 @@
     top: 10%;
 }
 
-.label {
-    line-height: 40px;
-    text-align: left;
-    padding: 5px;
-  
-    vertical-align: middle;
-    font-size: 1.5rem;
-    height: 5vh;
-    color: white;
-    font-weight: 600;
-    text-shadow: 2px 2px 2px #000000;
-    
-    padding-right: 15px;
-    background-color: black;
-}
-.inpSection {
-   
-   
-  
-}
-.inpText {
-    background-color: white;
-    color: black;
-    border-color: black;
-    border-style: ridge;
-    font-size: 1rem;
+#dropdown {
+    width: 50%;
+    height: 8vh;
     text-align: center;
-   
+    font-size: 1.5rem;
+    border: #000000 solid 3px;
+    margin: auto;
+    
 }
 
 #firstName {
@@ -128,4 +111,29 @@
     -ms-transition: all 0.5s ease-in;
     transition: all 0.5s ease-in;
     display: block;
+}
+
+.meldAan {
+    margin: 0 auto;
+    color: white;
+    border-color: white;
+    background-color: #00000063;
+    height: 5vh;
+    border-radius: 25px;
+    border-width: 4px;
+    width: 35vh;
+    font-size: 1.5rem;
+    
+}
+
+.aangemeld {
+    margin: 0 auto;
+    color: greenyellow;
+    border-color: greenyellow;
+    background-color: #00000063;
+    height: 5vh;
+    border-radius: 25px;
+    border-width: 4px;
+    width: 35vh;
+    font-size: 1.5rem;
 }

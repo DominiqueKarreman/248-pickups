@@ -1,7 +1,7 @@
 import Nav from "./components/Nav.js";
 import FirstTime from "./components/FirstTime.js";
 import Banner from "./components/Banner.js";
-
+import Returning from "./components/Returning.js";
 import "./App.css";
 
 function App() {
@@ -12,6 +12,7 @@ function App() {
         <Banner />
         
         <FirstTime />
+        <Returning />
       </header>
     </div>
   );
