@@ -17,6 +17,25 @@
     transition-delay: 1.5s;
    
 }
+.FirstTimeNoHover {
+    position: absolute;
+    left: 13%;
+    background-color: black;
+    height: 65vh;
+    width: 55vh;
+    transform: skew(16deg);
+    box-shadow: 12px 12px 6px #00000076;
+    background-image: url(../public/background2.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    -webkit-transition: all 0.5s ease-out;
+    -moz-transition: all 0.5s ease-out;
+    -o-transition: all 0.5s ease-out;
+    -ms-transition: all 0.5s ease-out;
+    transition: all 0.5s ease-out;
+    transition-delay: 1.5s;
+   
+}
 .FirstTime:hover {
     z-index: 12;
     height: 70vh;

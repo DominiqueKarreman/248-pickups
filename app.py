@@ -87,13 +87,24 @@ def playersPost():
                 VALUES
                     (:first_name, :last_name, :address, :phone_number)
             '''
-        DB.insert(qry, args)
-     
+        id = DB.insert(qry, args)
+
+        qry2 = '''
+            INSERT INTO 
+                `presence` 
+                    (`player_id`, `date`, `first_time`)
+                VALUES
+                    (:player_id, :date, 1)
+            '''
+        today = date.today()
+        d1 = today.strftime("%d/%m/%Y")
+        DB.insert(qry2, {'player_id': id, 'date': d1})
 
         
         return {'message': f'Successfully added {args["first_name"]} {args["last_name"]}'}, 201
     except Exception as error:
         return {'error': str(error)}, 400
+
 @ app.route('/presence', methods=['POST'])
 def presencePost():
     try:
@@ -110,11 +121,19 @@ def presencePost():
                 VALUES
                     (:player_id, :date, :first_time)
             '''
+        qry2 = '''
+            
+            SELECT * FROM presence WHERE player_id = :player_id AND date = :date
+            '''
+        res = DB.one(qry2, {'player_id': args["player_id"], 'date': args["date"]})
+        print(res)
+        if res:
+            return {'message': f'Already added'}, 400
+        
         DB.insert(qry, args)
-     
 
         
-        return {'message': f'Successfully logged in {args["player_id"]}'}, 201
+        return {'message': f'Successfully logged in'}, 201
     except Exception as error:
         return {'error': str(error)}, 400
 

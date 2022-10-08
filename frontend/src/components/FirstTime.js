@@ -1,6 +1,6 @@
 import React from "react";
 import { useRef, useEffect, useState } from "react";
-import { useInView } from "react-intersection-observer";
+
 import reactDOM from "react-dom";
 import Modal from "./Modal.js";
 import "../index.css";
@@ -23,6 +23,7 @@ export default function FirstTime() {
   function timeout(delay) {
     return new Promise((res) => setTimeout(res, delay));
   }
+
 
   async function cleanPage() {
     await timeout(2000);

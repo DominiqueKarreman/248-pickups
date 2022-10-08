@@ -11,10 +11,10 @@ export default function Nav() {
           <a href="/">Aanmelden</a>
         </li>
         <li>
-          <a href="/about">Spelers</a>
+          <a href="/Spelers">Spelers</a>
         </li>
         <li>
-          <a href="/contact">Overzicht</a>
+          <a href="/Overzicht">Overzicht</a>
         </li>
       </ul>
     </div>
