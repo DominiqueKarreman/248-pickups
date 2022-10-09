@@ -3,7 +3,7 @@
     right: 13%;
     background-color: black;
     height: 65vh;
-    width: 55vh;
+    width: 60vh;
     transform: skew(-16deg);
     box-shadow: 12px 12px 6px #00000076;
     background-image: url(../public/kobe2.png);
@@ -23,7 +23,7 @@
     right: 13%;
     background-color: black;
     height: 65vh;
-    width: 55vh;
+    width: 60vh;
     transform: skew(-16deg);
     box-shadow: 12px 12px 6px #00000076;
     background-image: url(../public/kobe2.png);
@@ -37,6 +37,7 @@
     transition-delay: 1.5s;
     display: grid;
     grid-template-rows: 0.3fr 1fr 0.3fr;
+    z-index: -10;
 }
 .Returning:hover {
     z-index: 12;

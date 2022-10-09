@@ -4,12 +4,13 @@ import reactDOM from "react-dom";
 import "../index.css";
 import "../returning.css";
 
-export default function Returning() {
+export default function Returning({setFocused, currentFocused}) {
   const [players, setPlayers] = useState([]);
   const [sPlayer, setPlayer] = useState("");
   const [classB, setClassB] = useState("meldAan");
   const [message, setMessage] = useState("Meld je aan");
-
+  const [currentClass, setCurrentClass] = useState("Returning");
+  console.log(currentFocused, "deze is gefocussed")
   function timeout(delay) {
     return new Promise((res) => setTimeout(res, delay));
   }
@@ -17,11 +18,12 @@ export default function Returning() {
   // fetch players from database
   useEffect(() => {
     fetch("http://127.0.0.1:5000/players")
-      .then((res) => res.json())
-      .then((data) => {
-        console.log(data, "data");
-        setPlayers(data);
-      });
+    .then((res) => res.json())
+    .then((data) => {
+      console.log(data, "data");
+      setPlayers(data);
+    });
+    
   }, []);
 
   async function handleClick() {
@@ -59,8 +61,22 @@ export default function Returning() {
 
     window.location.reload();
   }
+  async function changeCurrentClass() {
+    if(currentFocused == null || currentFocused === "Returning"){
+      await timeout(1500);
+      setCurrentClass("Returning")
+    } 
+    if(currentFocused === "FirstTime"){
+    
+      setCurrentClass("ReturningNoHover")
+    }
+  }
+  //run changeCurrentClass on every render
+  useEffect(() => {
+    changeCurrentClass()
+  })
   return (
-    <div id={"returningDiv"}className="Returning">
+    <div onMouseEnter={()=>{setFocused("Returning")}} onMouseLeave={()=>{setFocused(null)}}id={"returningDiv"}className={currentClass}>
       <h1>Returning</h1>
       <select
         onChange={(event) => setPlayer(event.target.value)}

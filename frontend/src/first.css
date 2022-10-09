@@ -3,7 +3,7 @@
     left: 13%;
     background-color: black;
     height: 65vh;
-    width: 55vh;
+    width: 60vh;
     transform: skew(16deg);
     box-shadow: 12px 12px 6px #00000076;
     background-image: url(../public/background2.jpg);
@@ -22,7 +22,7 @@
     left: 13%;
     background-color: black;
     height: 65vh;
-    width: 55vh;
+    width: 60vh;
     transform: skew(16deg);
     box-shadow: 12px 12px 6px #00000076;
     background-image: url(../public/background2.jpg);
@@ -34,7 +34,7 @@
     -ms-transition: all 0.5s ease-out;
     transition: all 0.5s ease-out;
     transition-delay: 1.5s;
-   
+    z-index: -10;
 }
 .FirstTime:hover {
     z-index: 12;

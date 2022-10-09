@@ -7,9 +7,10 @@ import "../index.css";
 import "../first.css";
 import "../modal.css";
 
-export default function FirstTime() {
+export default function FirstTime({ setFocused, currentFocused }) {
   const myRef = useRef();
   const [visible, setVisible] = useState("not loaded");
+  const [currentClass, setCurrentClass] = useState("FirstTime");
   const [modalState, setModalState] = useState("Modal");
   const [modalMessage, setModalMessage] = useState("");
   const [first_name, setFirst_name] = useState("");
@@ -23,7 +24,6 @@ export default function FirstTime() {
   function timeout(delay) {
     return new Promise((res) => setTimeout(res, delay));
   }
-
 
   async function cleanPage() {
     await timeout(2000);
@@ -48,14 +48,13 @@ export default function FirstTime() {
     // regex that checks if the input contains only numbers and + and is between 10 and 12 characters long
 
     // check if number is valid
-    
-    
-    let errors = []; 
-    if(adres.length < 2) {
-      errors.push("adres moet minimaal 2 tekens bevatten")
+
+    let errors = [];
+    if (adres.length < 2) {
+      errors.push("adres moet minimaal 2 tekens bevatten");
     }
-    if(number.length <= 10 || number.length >= 12){
-      console.log(number)
+    if (number.length <= 10 || number.length >= 12) {
+      console.log(number);
       errors.push("nummer moet tussen de 10 en 12 karakters lang zijn");
     }
     if (regex.test(first_name) === false) {
@@ -65,44 +64,34 @@ export default function FirstTime() {
     }
     // check if last_name is valid
     if (regex.test(last_name) === false) {
-      errors.push("Achternaam moet minimaal 2 letters bevatten en mag alleen uit letters bestaan");
+      errors.push(
+        "Achternaam moet minimaal 2 letters bevatten en mag alleen uit letters bestaan"
+      );
     }
 
     let errorText;
-    if(errors.length > 0 ){
-
+    if (errors.length > 0) {
       errorText = errors.join(", \n");
       if (errorText.length > 0) {
-      setModalState("showModal");
-      setModalMessage(errorText);
-      await timeout(3000);
-      setModalState("Modal");
-      errors = []
-      let returner = "errors"
-      return returner
+        setModalState("showModal");
+        setModalMessage(errorText);
+        await timeout(3000);
+        setModalState("Modal");
+        errors = [];
+        let returner = "errors";
+        return returner;
+      }
     }
-    }
-    let valid = "valid"
-    return valid
+    let valid = "valid";
+    return valid;
   }
-  // useEffect(() => {
-  //   const observer = new IntersectionObserver((entries) => {
-  //     const entry = entries[0];
-  //     setVisible(entry.isIntersecting);
-
-  //     console.log(entry.isIntersecting, "entry.isintersecting");
-  //     console.log(entry, "entry");
-  //   });
-  //   console.log(myRef.current, "myRef");
-  //   observer.observe(myRef.current);
-  // }, []);
 
   async function postFirst() {
     console.log("postFirst");
     let numberOfErrors = await regexCheck();
-    if(numberOfErrors !== "valid"){
-      console.log(numberOfErrors)
-      return
+    if (numberOfErrors !== "valid") {
+      console.log(numberOfErrors);
+      return;
     }
     console.log("hij gaat ");
     let check = `Successfully added ${first_name} ${last_name}`;
@@ -131,8 +120,31 @@ export default function FirstTime() {
       });
   }
 
+  async function changeCurrentClass() {
+    if (currentFocused == null || currentFocused === "FirstTime") {
+      await timeout(1500);
+      setCurrentClass("FirstTime");
+    }
+    if (currentFocused === "Returning") {
+  
+      setCurrentClass("FirstTimeNoHover");
+    }
+  }
+  //run changeCurrentClass on every render
+  useEffect(() => {
+    changeCurrentClass();
+  });
   return (
-    <div className="FirstTime">
+    <div
+      onMouseEnter={() => {
+        setFocused("FirstTime");
+      }}
+      onMouseLeave={() => {
+        setFocused();
+      }}
+      id={"1"}
+      className={currentClass}
+    >
       <h1 ref={myRef} id="card">
         First Time
       </h1>
