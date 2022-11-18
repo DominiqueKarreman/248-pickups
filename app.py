@@ -105,13 +105,15 @@ def presence():
 def playersPost():
     try:
         args = request.get_json()
+
+        
         qry = '''
             
             INSERT INTO 
                 `players` 
-                    (`first_name`, `last_name`, `address`, `phone_number`)
+                    (`first_name`, `last_name`, `address`, `phone_number`, `postal_code`, `neighbourhood`, `birthdate`, `social_media`)
                 VALUES
-                    (:first_name, :last_name, :address, :phone_number)
+                    (:first_name, :last_name, :address, :phone_number, :postal_code, :neighbourhood, :birthdate, :social_media)
             '''
         id = DB.insert(qry, args)
 

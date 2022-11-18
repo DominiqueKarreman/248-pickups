@@ -17,6 +17,7 @@ function App() {
   let substring2 = window.location.pathname.substr(0,11)
   let laststring2 = window.location.pathname.substr(11)
   console.log(substring, "sub")
+  
   switch (window.location.pathname) {
     case "/":
       component = <Inschrijven />;
